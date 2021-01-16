@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { Text, TextInput, SafeAreaView, StyleSheet, View } from "react-native";
 
-import { styles } from "../styles/styles";
+import { globalStyles } from "../styles/styles";
 
 export default function MyExperience({ navigation }) {
   const [experience, setExperience] = useState("");
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={localStyles.container}>
+    <SafeAreaView style={globalStyles.container}>
+      <View style={styles.container}>
         <Text>Hi, </Text>
         <Text>Welcome to My Experience</Text>
         <TextInput
           multiline
           placeholder="Ceritakan kisahmu..."
-          style={localStyles.formExperience}
+          style={styles.formExperience}
           onChangeText={(text) => setExperience(text)}
         />
         <Text>Buat ngetes</Text>
@@ -23,7 +23,7 @@ export default function MyExperience({ navigation }) {
   );
 }
 
-const localStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
@@ -32,8 +32,8 @@ const localStyles = StyleSheet.create({
   },
   formExperience: {
     height: 40,
-    borderColor: "#00B7EB",
-    color: "#00B7EB",
+    borderColor: "#0d7686",
+    color: "#0d7686",
     borderWidth: 1,
     padding: 8,
     margin: 10,

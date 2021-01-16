@@ -7,6 +7,9 @@ import MyExperience from "../screens/MyExperience";
 const screens = {
   Login: {
     screen: Login,
+    navigationOptions: {
+      headerShown: false,
+    },
   },
   MyExperience: {
     screen: MyExperience,

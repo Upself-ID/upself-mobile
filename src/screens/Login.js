@@ -8,7 +8,8 @@ import {
   View,
   TextInput,
 } from "react-native";
-import { styles } from "../styles/styles";
+import { globalStyles } from "../styles/styles";
+import SignButton from "../shared/button";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -19,64 +20,58 @@ export default function Login({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <View style={localStyles.headerContainer}> */}
+    <SafeAreaView style={globalStyles.container}>
       <Image
-        style={localStyles.logo}
-        source={require("../../assets/adaptive-icon.png")}
+        style={styles.logo}
+        source={require("../../assets/images/adaptive-icon.png")}
       />
-      {/* </View> */}
-      <View style={localStyles.formContainer}>
-        <Text style={localStyles.loginText}>Log into your account</Text>
+      <View style={styles.formContainer}>
+        <Text style={styles.welcomeText}>Welcome to Upself</Text>
         <TextInput
-          style={localStyles.formText}
+          style={styles.formText}
           onChangeText={(text) => setEmail(text)}
           value={email}
-          placeholder="Email"
+          placeholder="Email address"
         />
         <TextInput
           secureTextEntry={true}
-          style={localStyles.formText}
+          style={styles.formText}
           onChangeText={(text) => setPassword(text)}
           value={password}
           placeholder="Password"
         />
-        <Button
-          title="Login"
-          onPress={loginHandler}
-          style={localStyles.buttonContainer}
-        />
+        <View>
+          <Button title="Login" onPress={loginHandler} color="#0d7686" />
+          {/* <Button title="Register" onPress={loginHandler} color="#000" />  */}
+        </View>
+        {/* <SignButton text="Login" onPress={loginHandler} /> */}
       </View>
     </SafeAreaView>
   );
 }
 
-const localStyles = StyleSheet.create({
-  headerContainer: {
-    flex: 1,
-    backgroundColor: "#00B7EB",
-  },
+const styles = StyleSheet.create({
   formContainer: {
     flex: 4,
     backgroundColor: "#fff",
   },
   formText: {
     height: 40,
-    borderColor: "#00B7EB",
-    color: "#00B7EB",
-    borderWidth: 1,
+    borderColor: "#0d7686",
+    color: "#0d7686",
+    borderBottomWidth: 2,
     padding: 8,
     margin: 10,
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
+    margin: 10,
   },
-  loginText: {
-    color: "#00B7EB",
+  welcomeText: {
+    color: "#0d7686",
     fontWeight: "bold",
-  },
-  buttonContainer: {
-    fontWeight: "bold",
+    fontSize: 20,
+    margin: 10,
   },
 });
