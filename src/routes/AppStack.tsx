@@ -1,8 +1,8 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 
-import Login from "../screens/Login";
-import MyExperience from "../screens/MyExperience";
+import Login from "../screens/LoginScreen";
+import MyExperience from "../screens/MyExperienceScreen";
 
 const screens = {
   Login: {

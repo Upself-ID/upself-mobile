@@ -8,19 +8,19 @@ import {
   View,
   TextInput,
 } from "react-native";
-import { globalStyles } from "../styles/styles";
+import { GlobalStyles } from "../styles/GlobalStyles";
 import SignButton from "../shared/button";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginHandler = (email, password) => {
+  const loginHandler = () => {
     navigation.navigate("MyExperience");
   };
 
   return (
-    <SafeAreaView style={globalStyles.container}>
+    <SafeAreaView style={GlobalStyles.container}>
       <Image
         style={styles.logo}
         source={require("../../assets/images/adaptive-icon.png")}
@@ -51,9 +51,16 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  logo: {
+    flex: 1,
+    width: 200,
+    height: 200,
+    margin: 10,
+  },
   formContainer: {
-    flex: 4,
-    backgroundColor: "#fff",
+    flex: 2,
+    flexDirection: "column",
+    // justifyContent: "center",
   },
   formText: {
     height: 40,
@@ -61,17 +68,11 @@ const styles = StyleSheet.create({
     color: "#0d7686",
     borderBottomWidth: 2,
     padding: 8,
-    margin: 10,
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    margin: 10,
+    margin: 15,
   },
   welcomeText: {
     color: "#0d7686",
     fontWeight: "bold",
     fontSize: 20,
-    margin: 10,
   },
 });

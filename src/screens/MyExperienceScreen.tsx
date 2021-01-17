@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Text, TextInput, SafeAreaView, StyleSheet, View } from "react-native";
 
-import { globalStyles } from "../styles/styles";
+import { GlobalStyles } from "../styles/GlobalStyles";
 
-export default function MyExperience({ navigation }) {
+export default function MyExperienceScreen({ navigation }) {
   const [experience, setExperience] = useState("");
   return (
-    <SafeAreaView style={globalStyles.container}>
+    <SafeAreaView style={GlobalStyles.container}>
       <View style={styles.container}>
         <Text>Hi, </Text>
         <Text>Welcome to My Experience</Text>
