@@ -4,11 +4,11 @@ import MyExperienceScreen from "../screens/MyExperienceScreen";
 import MyHomeScreen from "../screens/MyHomeScreen";
 import MyProfileScreen from "../screens/MyProfileScreen";
 
-interface HomeTabsProps {}
+type HomeTabsProps = {};
 
 const Tab = createBottomTabNavigator();
 
-export const HomeTabs: React.FC<HomeTabsProps> = ({}) => {
+export const HomeTabs = ({}: HomeTabsProps) => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="MyHomeScreen" component={MyHomeScreen} />

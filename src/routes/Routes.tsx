@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { HomeTabs } from "./HomeTabs";
 import { WelcomeStack } from "./WelcomeStack";
 
-interface RoutesProps {}
+type RoutesProps = {};
 
-export const Routes: React.FC<RoutesProps> = ({}) => {
+export const Routes = ({}: RoutesProps) => {
   //   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
