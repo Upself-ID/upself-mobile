@@ -1,8 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useState } from "react";
-import { ActivityIndicator, Text, View } from "react-native";
-import { WelcomeScreen } from "../screens/WelcomeScreen";
 import { HomeTabs } from "./HomeTabs";
+import { WelcomeStack } from "./WelcomeStack";
 
 interface RoutesProps {}
 
@@ -20,7 +19,7 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
 
   return (
     <NavigationContainer>
-      {!isLoggedIn ? <WelcomeScreen /> : <HomeTabs />}
+      {!isLoggedIn ? <WelcomeStack /> : <HomeTabs />}
     </NavigationContainer>
   );
 };
