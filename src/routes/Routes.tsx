@@ -1,21 +1,29 @@
 import { NavigationContainer } from "@react-navigation/native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator } from "react-native";
+import { CenterSafeView } from "../components/CenterSafeView";
 import { HomeTabs } from "./HomeTabs";
 import { WelcomeStack } from "./WelcomeStack";
 
 type RoutesProps = {};
 
 export const Routes = ({}: RoutesProps) => {
-  //   const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  //   if (isLoading) {
-  //     return (
-  //       <CenterView>
-  //         <ActivityIndicator size="large" />
-  //       </CenterView>
-  //     );
-  //   }
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <CenterSafeView backgroundColor={"#fff"}>
+        <ActivityIndicator size="large" />
+      </CenterSafeView>
+    );
+  }
 
   return (
     <NavigationContainer>
