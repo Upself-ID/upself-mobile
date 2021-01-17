@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, StyleSheet, Text } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
 import { HomeTabs } from "./HomeTabs";
 import { WelcomeStack } from "./WelcomeStack";
@@ -14,13 +14,14 @@ export const Routes = ({}: RoutesProps) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 2000);
   }, []);
 
   if (isLoading) {
     return (
       <CenterSafeView backgroundColor={"#fff"}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color="#0d7686" />
+        <Text style={styles.loadingText}>Upself</Text>
       </CenterSafeView>
     );
   }
@@ -31,3 +32,10 @@ export const Routes = ({}: RoutesProps) => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  loadingText: {
+    color: "#0d7686",
+    fontWeight: "bold",
+  },
+});
