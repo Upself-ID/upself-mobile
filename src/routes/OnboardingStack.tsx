@@ -3,13 +3,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { LoginScreen } from "../screens/LoginScreen";
 import { RegisterScreen } from "../screens/RegisterScreen";
 import { WelcomeScreen } from "../screens/WelcomeScreen";
-import { LauncherParamList } from "../params/LauncherParamList";
+import { OnboardingParamList } from "../params/OnboardingParamList";
 
-type WelcomeStackProps = {};
+type OnboardingStackProps = {};
 
-const Stack = createStackNavigator<LauncherParamList>();
+const Stack = createStackNavigator<OnboardingParamList>();
 
-export const WelcomeStack = ({}: WelcomeStackProps) => {
+export const OnboardingStack = ({}: OnboardingStackProps) => {
   return (
     <Stack.Navigator
       initialRouteName="WelcomeScreen"

@@ -1,14 +1,11 @@
 import React from "react";
 import { Text } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
-import { LauncherProps } from "../params/LauncherParamList";
+import { OnboardingProps } from "../params/OnboardingParamList";
 
 type LoginScreenProps = {};
 
-export const LoginScreen = ({
-  route,
-  navigation,
-}: LauncherProps<"LoginScreen">) => {
+export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
   return (
     <CenterSafeView backgroundColor={"#0d7686"}>
       <Text>Login</Text>

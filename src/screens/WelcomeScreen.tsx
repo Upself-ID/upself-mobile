@@ -1,17 +1,14 @@
 import React from "react";
-import { Alert, Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
 import { CustomButton } from "../components/CustomButton";
-import { createStackNavigator } from "@react-navigation/stack";
-import { LauncherProps } from "../params/LauncherParamList";
+import { OnboardingProps } from "../params/OnboardingParamList";
 
 type WelcomeScreenProps = {};
 
-const Stack = createStackNavigator();
-
 export const WelcomeScreen = ({
   navigation,
-}: LauncherProps<"WelcomeScreen">) => {
+}: OnboardingProps<"WelcomeScreen">) => {
   const onPressLogin = () => navigation.navigate("LoginScreen");
   const onPressRegister = () => {
     navigation.navigate("RegisterScreen");

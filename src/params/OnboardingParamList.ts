@@ -1,13 +1,13 @@
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-export type LauncherParamList = {
+export type OnboardingParamList = {
   WelcomeScreen: undefined;
   LoginScreen: undefined;
   RegisterScreen: undefined;
 };
 
-export type LauncherProps<T extends keyof LauncherParamList> = {
-  route: RouteProp<LauncherParamList, T>;
-  navigation: StackNavigationProp<LauncherParamList, T>;
+export type OnboardingProps<T extends keyof OnboardingParamList> = {
+  route: RouteProp<OnboardingParamList, T>;
+  navigation: StackNavigationProp<OnboardingParamList, T>;
 };

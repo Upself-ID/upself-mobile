@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
 import { HomeTabs } from "./HomeTabs";
-import { WelcomeStack } from "./WelcomeStack";
+import { OnboardingStack } from "./OnboardingStack";
 
 type RoutesProps = {};
 
@@ -28,7 +28,7 @@ export const Routes = ({}: RoutesProps) => {
 
   return (
     <NavigationContainer>
-      {!isLoggedIn ? <WelcomeStack /> : <HomeTabs />}
+      {!isLoggedIn ? <OnboardingStack /> : <HomeTabs />}
     </NavigationContainer>
   );
 };

@@ -1,6 +1,9 @@
 import React, { ReactNode } from "react";
-import { StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Platform, StyleSheet, View } from "react-native";
+import {
+  TouchableNativeFeedback,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 type CustomButtonProps = {
   children: ReactNode;
@@ -13,7 +16,15 @@ export const CustomButton = ({
   onPress,
   backgroundColor,
 }: CustomButtonProps) => {
-  return (
+  return Platform.OS === "android" ? (
+    <TouchableNativeFeedback onPress={onPress}>
+      <View
+        style={[styles.buttonContainer, { backgroundColor: backgroundColor }]}
+      >
+        {children}
+      </View>
+    </TouchableNativeFeedback>
+  ) : (
     <TouchableOpacity
       style={[styles.buttonContainer, { backgroundColor: backgroundColor }]}
       onPress={onPress}
