@@ -3,8 +3,11 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
 import { CustomButton } from "../components/CustomButton";
 import { OnboardingProps } from "../params/OnboardingParamList";
+import { Color } from "../styles/Colors";
 
 type WelcomeScreenProps = {};
+
+const { primary: primaryColor, white: whiteColor } = Color;
 
 export const WelcomeScreen = ({
   navigation,
@@ -22,10 +25,18 @@ export const WelcomeScreen = ({
       />
       <Text style={styles.welcomeText}>Welcome to Upself</Text>
       <View style={styles.buttonContainer}>
-        <CustomButton onPress={onPressLogin} backgroundColor="#0d7686">
+        <CustomButton
+          onPress={onPressLogin}
+          backgroundColor={primaryColor}
+          borderColor={whiteColor}
+        >
           <Text style={styles.buttonLoginText}>Tes {"Log In"}</Text>
         </CustomButton>
-        <CustomButton onPress={onPressRegister} backgroundColor="#fff">
+        <CustomButton
+          onPress={onPressRegister}
+          backgroundColor={whiteColor}
+          borderColor={primaryColor}
+        >
           <Text style={styles.buttonRegisterText}>Tes {"Register"}</Text>
         </CustomButton>
       </View>

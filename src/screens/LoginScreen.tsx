@@ -13,19 +13,6 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
   );
 };
 
-// import React, { useState } from "react";
-// import {
-//   Button,
-//   Image,
-//   Text,
-//   StyleSheet,
-//   SafeAreaView,
-//   View,
-//   TextInput,
-// } from "react-native";
-// import { GlobalStyles } from "../styles/GlobalStyles";
-// import SignButton from "../shared/button";
-
 // export default function Login({ navigation }) {
 //   const [email, setEmail] = useState("");
 //   const [password, setPassword] = useState("");

@@ -9,24 +9,24 @@ type CustomButtonProps = {
   children: ReactNode;
   onPress: () => void;
   backgroundColor: string;
+  borderColor: string;
 };
 
 export const CustomButton = ({
   children,
   onPress,
   backgroundColor,
+  borderColor,
 }: CustomButtonProps) => {
   return Platform.OS === "android" ? (
     <TouchableNativeFeedback onPress={onPress}>
-      <View
-        style={[styles.buttonContainer, { backgroundColor: backgroundColor }]}
-      >
+      <View style={[styles.buttonContainer, { backgroundColor, borderColor }]}>
         {children}
       </View>
     </TouchableNativeFeedback>
   ) : (
     <TouchableOpacity
-      style={[styles.buttonContainer, { backgroundColor: backgroundColor }]}
+      style={[styles.buttonContainer, { backgroundColor }]}
       onPress={onPress}
     >
       {children}
@@ -36,7 +36,6 @@ export const CustomButton = ({
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    backgroundColor: "#0d7686",
     margin: 10,
     padding: 10,
     borderWidth: 1,
