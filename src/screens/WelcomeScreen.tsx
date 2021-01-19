@@ -3,11 +3,11 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
 import { CustomButton } from "../components/CustomButton";
 import { OnboardingProps } from "../params/OnboardingParamList";
-import { Color } from "../styles/Colors";
+import { Colors } from "../styles/Colors";
 
 type WelcomeScreenProps = {};
 
-const { primary: primaryColor, white: whiteColor } = Color;
+const { primary: primaryColor, white: whiteColor } = Colors;
 
 export const WelcomeScreen = ({
   navigation,
