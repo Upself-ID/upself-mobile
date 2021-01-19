@@ -30,14 +30,18 @@ export const WelcomeScreen = ({
           backgroundColor={primaryColor}
           borderColor={whiteColor}
         >
-          <Text style={styles.buttonLoginText}>Tes {"Log In"}</Text>
+          <Text style={[styles.buttonText, { color: whiteColor }]}>
+            Tes {"Log In"}
+          </Text>
         </CustomButton>
         <CustomButton
           onPress={onPressRegister}
           backgroundColor={whiteColor}
           borderColor={primaryColor}
         >
-          <Text style={styles.buttonRegisterText}>Tes {"Register"}</Text>
+          <Text style={[styles.buttonText, { color: primaryColor }]}>
+            Tes {"Register"}
+          </Text>
         </CustomButton>
       </View>
     </CenterSafeView>
@@ -53,12 +57,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "column",
   },
-  buttonLoginText: {
-    color: "#fff",
-    textAlign: "center",
-  },
-  buttonRegisterText: {
-    color: "#0d7686",
+  buttonText: {
     textAlign: "center",
   },
   welcomeText: {
