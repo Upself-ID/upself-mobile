@@ -1,9 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, StyleSheet, Text } from "react-native";
-import { CenterSafeView } from "../components/CenterSafeView";
 import { HomeTabs } from "./HomeTabs";
 import { OnboardingStack } from "./OnboardingStack";
+import { SplashScreen } from "../screens/SplashScreen";
 
 type RoutesProps = {};
 
@@ -18,12 +17,7 @@ export const Routes = ({}: RoutesProps) => {
   }, []);
 
   if (isLoading) {
-    return (
-      <CenterSafeView backgroundColor={"#fff"}>
-        <ActivityIndicator size="large" color="#0d7686" />
-        <Text style={styles.loadingText}>Upself</Text>
-      </CenterSafeView>
-    );
+    return <SplashScreen />;
   }
 
   return (
@@ -32,10 +26,3 @@ export const Routes = ({}: RoutesProps) => {
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  loadingText: {
-    color: "#0d7686",
-    fontWeight: "bold",
-  },
-});

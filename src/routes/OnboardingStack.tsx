@@ -4,18 +4,24 @@ import { LoginScreen } from "../screens/LoginScreen";
 import { RegisterScreen } from "../screens/RegisterScreen";
 import { WelcomeScreen } from "../screens/WelcomeScreen";
 import { OnboardingParamList } from "../params/OnboardingParamList";
+import { Colors } from "../styles/Colors";
 
 type OnboardingStackProps = {};
 
 const Stack = createStackNavigator<OnboardingParamList>();
+
+const { primaryColor, whiteColor } = Colors;
 
 export const OnboardingStack = ({}: OnboardingStackProps) => {
   return (
     <Stack.Navigator
       initialRouteName="WelcomeScreen"
       screenOptions={{
-        headerStyle: { backgroundColor: "#fff" },
-        headerTitleStyle: { fontWeight: "bold" },
+        headerStyle: { backgroundColor: primaryColor },
+        headerTintColor: whiteColor,
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
       }}
     >
       <Stack.Screen

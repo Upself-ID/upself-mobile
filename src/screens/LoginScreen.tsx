@@ -2,12 +2,15 @@ import React from "react";
 import { Text } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
 import { OnboardingProps } from "../params/OnboardingParamList";
+import { Colors } from "../styles/Colors";
 
 type LoginScreenProps = {};
 
+const { whiteColor } = Colors;
+
 export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
   return (
-    <CenterSafeView backgroundColor={"#0d7686"}>
+    <CenterSafeView backgroundColor={whiteColor}>
       <Text>Login</Text>
     </CenterSafeView>
   );
