@@ -1,35 +1,42 @@
 import React, { ReactNode, useState } from "react";
-import { Platform, StyleSheet, View } from "react-native";
 import {
+  Platform,
+  StyleSheet,
+  View,
   TouchableNativeFeedback,
   TouchableOpacity,
-} from "react-native-gesture-handler";
-import { Colors } from "../styles/Colors";
+} from "react-native";
+// import {
+//   TouchableNativeFeedback,
+//   TouchableOpacity,
+// } from "react-native-gesture-handler";
+import { GlobalColors } from "../styles/Colors";
 
 type CustomButtonProps = {
   children: ReactNode;
   onPress: () => void;
   backgroundColor: string;
   borderColor: string;
+  rippleColor: string;
 };
 
-const { primaryColor } = Colors;
+const { primaryColor, whiteColor } = GlobalColors;
 
 export const CustomButton = ({
   children,
   onPress,
   backgroundColor,
   borderColor,
+  rippleColor,
 }: CustomButtonProps) => {
-  const [rippleColor, setRippleColor] = useState(primaryColor);
-  const [rippleOverflow, setRippleOverflow] = useState(true);
-
   return Platform.OS === "android" ? (
     <TouchableNativeFeedback
       onPress={onPress}
-      background={TouchableNativeFeedback.Ripple(rippleColor, rippleOverflow)}
+      background={TouchableNativeFeedback.Ripple(rippleColor, false, 48)}
     >
-      <View style={[styles.buttonContainer, { borderColor }]}>{children}</View>
+      <View style={[styles.buttonContainer, { backgroundColor, borderColor }]}>
+        {children}
+      </View>
     </TouchableNativeFeedback>
   ) : (
     <TouchableOpacity
@@ -45,7 +52,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     margin: 8,
     padding: 8,
-    borderWidth: 1,
-    borderRadius: 10,
+    borderWidth: 2,
+    borderRadius: 16,
   },
 });

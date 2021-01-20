@@ -1,11 +1,11 @@
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
-import { Colors } from "../styles/Colors";
+import { GlobalColors } from "../styles/Colors";
 
 type SplashScreenProps = {};
 
-const { primaryColor, whiteColor } = Colors;
+const { primaryColor, whiteColor } = GlobalColors;
 
 export const SplashScreen = ({}: SplashScreenProps) => {
   return (

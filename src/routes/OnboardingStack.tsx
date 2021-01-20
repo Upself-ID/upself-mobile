@@ -4,13 +4,13 @@ import { LoginScreen } from "../screens/LoginScreen";
 import { RegisterScreen } from "../screens/RegisterScreen";
 import { WelcomeScreen } from "../screens/WelcomeScreen";
 import { OnboardingParamList } from "../params/OnboardingParamList";
-import { Colors } from "../styles/Colors";
+import { GlobalColors } from "../styles/Colors";
 
 type OnboardingStackProps = {};
 
 const Stack = createStackNavigator<OnboardingParamList>();
 
-const { primaryColor, whiteColor } = Colors;
+const { primaryColor, whiteColor } = GlobalColors;
 
 export const OnboardingStack = ({}: OnboardingStackProps) => {
   return (

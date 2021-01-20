@@ -1,13 +1,13 @@
 import React from "react";
-import { Image, Platform, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { CenterSafeView } from "../components/CenterSafeView";
 import { CustomButton } from "../components/CustomButton";
 import { OnboardingProps } from "../params/OnboardingParamList";
-import { Colors } from "../styles/Colors";
+import { GlobalColors } from "../styles/Colors";
 
 type WelcomeScreenProps = {};
 
-const { primaryColor, whiteColor } = Colors;
+const { primaryColor, whiteColor } = GlobalColors;
 
 export const WelcomeScreen = ({
   navigation,
@@ -28,7 +28,8 @@ export const WelcomeScreen = ({
         <CustomButton
           onPress={onPressLogin}
           backgroundColor={primaryColor}
-          borderColor={whiteColor}
+          borderColor={primaryColor}
+          rippleColor={whiteColor}
         >
           <Text style={[styles.buttonText, { color: whiteColor }]}>Log In</Text>
         </CustomButton>
@@ -36,6 +37,7 @@ export const WelcomeScreen = ({
           onPress={onPressRegister}
           backgroundColor={whiteColor}
           borderColor={primaryColor}
+          rippleColor={primaryColor}
         >
           <Text style={[styles.buttonText, { color: primaryColor }]}>
             Register
@@ -50,7 +52,6 @@ const styles = StyleSheet.create({
   logo: {
     width: 200,
     height: 200,
-    margin: 10,
   },
   buttonContainer: {
     flexDirection: "column",
@@ -66,6 +67,6 @@ const styles = StyleSheet.create({
     color: primaryColor,
     fontSize: 16,
     fontWeight: "bold",
-    padding: 48,
+    margin: 32,
   },
 });
