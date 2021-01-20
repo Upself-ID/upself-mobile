@@ -42,9 +42,9 @@ expo start
 
 ## Running the App in Development Mode
 
-- Run `expo start` on CLI.
-- It will create a localhost.
-- Wait until a QR code shows up on the CLI and the localhost.
-- Open the Expo app on the phone and scan the QR code using the app.
-- Wait until the build finishes.
-- You can now use the app on development mode.
+1. Run `expo start` on CLI.
+2. It will create a localhost.
+3. Wait until a QR code shows up on the CLI and the localhost.
+4. Open the Expo app on the phone and scan the QR code using the app.
+5. Wait until the build finishes.
+6. You can now use the app on development mode.
