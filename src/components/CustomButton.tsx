@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import {
   Platform,
   StyleSheet,
@@ -6,11 +6,6 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity,
 } from "react-native";
-// import {
-//   TouchableNativeFeedback,
-//   TouchableOpacity,
-// } from "react-native-gesture-handler";
-import { GlobalColors } from "../styles/Colors";
 
 type CustomButtonProps = {
   children: ReactNode;
@@ -19,8 +14,6 @@ type CustomButtonProps = {
   borderColor: string;
   rippleColor: string;
 };
-
-const { primaryColor, whiteColor } = GlobalColors;
 
 export const CustomButton = ({
   children,
