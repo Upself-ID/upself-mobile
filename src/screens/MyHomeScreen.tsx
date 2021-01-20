@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Text, TextInput, SafeAreaView, StyleSheet, View } from "react-native";
+import React from "react";
+import { Text, View } from "react-native";
 
-export default function MyHomeScreen() {
+type MyHomeScreenProps = {};
+
+export const MyHomeScreen = ({}: MyHomeScreenProps) => {
   return (
     <View>
       <Text>My Profile</Text>
     </View>
   );
-}
+};

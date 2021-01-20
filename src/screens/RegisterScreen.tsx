@@ -8,9 +8,7 @@ type RegisterScreenProps = {};
 
 const { whiteColor } = GlobalColors;
 
-export const RegisterScreen = ({
-  navigation,
-}: OnboardingProps<"RegisterScreen">) => {
+export const RegisterScreen = ({}: OnboardingProps<"RegisterScreen">) => {
   return (
     <CenterSafeView backgroundColor={whiteColor}>
       <Text>Register</Text>

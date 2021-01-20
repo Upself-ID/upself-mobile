@@ -8,7 +8,7 @@ type LoginScreenProps = {};
 
 const { whiteColor } = GlobalColors;
 
-export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
+export const LoginScreen = ({}: OnboardingProps<"LoginScreen">) => {
   return (
     <CenterSafeView backgroundColor={whiteColor}>
       <Text>Login</Text>

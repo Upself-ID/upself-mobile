@@ -2,9 +2,9 @@ import React, { ReactNode } from "react";
 import {
   Platform,
   StyleSheet,
-  View,
   TouchableNativeFeedback,
   TouchableOpacity,
+  View,
 } from "react-native";
 
 type CustomButtonProps = {
@@ -15,7 +15,7 @@ type CustomButtonProps = {
   rippleColor: string;
 };
 
-export const CustomButton = ({
+export const AuthButton = ({
   children,
   onPress,
   backgroundColor,
