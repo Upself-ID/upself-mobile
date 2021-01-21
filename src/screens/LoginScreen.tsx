@@ -6,6 +6,7 @@ import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 import { AuthStyles } from "../styles/AuthStyles";
+import { EmailInput, PasswordInput } from "../components/AppTextInput";
 
 type LoginScreenProps = {};
 
@@ -14,6 +15,9 @@ const { primaryColor, whiteColor } = GlobalColors;
 export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const onChangeEmailText = (text: string) => setEmail(text);
+  const onChangePasswordText = (text: string) => setPassword(text);
 
   const onPressGoToRegister = () => {
     navigation.replace("RegisterScreen");
@@ -31,12 +35,8 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
             email
           </Text>
         </Text>
-        <TextInput
-          style={AuthStyles.formText}
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          placeholder="Email address"
-        />
+
+        <EmailInput onChangeText={onChangeEmailText} email={email} />
 
         <Text style={AuthStyles.mainText}>
           and your{" "}
@@ -44,31 +44,30 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
             password
           </Text>
         </Text>
-        <TextInput
-          secureTextEntry={true}
-          style={AuthStyles.formText}
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          placeholder="Password"
-        />
-      </View>
 
-      <View style={AuthStyles.footerContainer}>
-        <Text style={{ margin: 8 }}>
-          Don't have an account?{" "}
-          <Text onPress={onPressGoToRegister} style={{ color: primaryColor }}>
-            Register here
+        <PasswordInput
+          onChangeText={onChangePasswordText}
+          password={password}
+        />
+
+        <View style={AuthStyles.footerContainer}>
+          <Text style={{ margin: 8 }}>
+            Don't have an account?{" "}
+            <Text onPress={onPressGoToRegister} style={{ color: primaryColor }}>
+              Register here
+            </Text>
+            .
           </Text>
-          .
-        </Text>
-        <AuthButton
-          onPress={onPressSubmit}
-          backgroundColor={primaryColor}
-          borderColor={primaryColor}
-          rippleColor={whiteColor}
-        >
-          <Text style={AuthStyles.submitText}>Submit</Text>
-        </AuthButton>
+
+          <AuthButton
+            onPress={onPressSubmit}
+            backgroundColor={primaryColor}
+            borderColor={primaryColor}
+            rippleColor={whiteColor}
+          >
+            <Text style={AuthStyles.submitText}>Submit</Text>
+          </AuthButton>
+        </View>
       </View>
     </AuthAppView>
   );

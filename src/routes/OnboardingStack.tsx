@@ -19,9 +19,9 @@ export const OnboardingStack = ({}: OnboardingStackProps) => {
       screenOptions={{
         headerStyle: {
           backgroundColor: whiteColor,
-          // This removes shadow header on iOS
+          // shadowOpacity removes shadow header on iOS
           shadowOpacity: 0,
-          // This removes shadow header on Android
+          // elevation removes shadow header on Android
           elevation: 0,
         },
         headerTintColor: primaryColor,

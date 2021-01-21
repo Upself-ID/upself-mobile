@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { GlobalColors } from "../styles/Colors";
+import { GlobalColors } from "./Colors";
+
 const { primaryColor, whiteColor } = GlobalColors;
 
 export const AuthStyles = StyleSheet.create({

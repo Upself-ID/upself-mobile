@@ -5,6 +5,7 @@ import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 import { AuthStyles } from "../styles/AuthStyles";
+import { EmailInput, PasswordInput } from "../components/AppTextInput";
 
 type RegisterScreenProps = {};
 
@@ -15,6 +16,9 @@ export const RegisterScreen = ({
 }: OnboardingProps<"RegisterScreen">) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const onChangeEmailText = (text: string) => setEmail(text);
+  const onChangePasswordText = (text: string) => setPassword(text);
 
   const onPressGoToLogin = () => {
     navigation.replace("LoginScreen");
@@ -36,12 +40,8 @@ export const RegisterScreen = ({
             email
           </Text>
         </Text>
-        <TextInput
-          style={AuthStyles.formText}
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          placeholder="Email address"
-        />
+
+        <EmailInput onChangeText={onChangeEmailText} email={email} />
 
         <Text style={AuthStyles.mainText}>
           and your{" "}
@@ -49,12 +49,10 @@ export const RegisterScreen = ({
             password
           </Text>
         </Text>
-        <TextInput
-          secureTextEntry={true}
-          style={AuthStyles.formText}
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          placeholder="Password"
+
+        <PasswordInput
+          onChangeText={onChangePasswordText}
+          password={password}
         />
       </View>
 
@@ -66,6 +64,7 @@ export const RegisterScreen = ({
           </Text>
           .
         </Text>
+
         <AuthButton
           onPress={onPressSubmit}
           backgroundColor={primaryColor}
