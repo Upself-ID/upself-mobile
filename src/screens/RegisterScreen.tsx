@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Text, TextInput, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../params/OnboardingParamList";
@@ -37,7 +37,8 @@ export const RegisterScreen = ({
         <Text style={AuthStyles.mainText}>
           Please enter your{" "}
           <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            email
+            {" "}
+            email{" "}
           </Text>
         </Text>
 
@@ -46,7 +47,8 @@ export const RegisterScreen = ({
         <Text style={AuthStyles.mainText}>
           and your{" "}
           <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            password
+            {" "}
+            password{" "}
           </Text>
         </Text>
 

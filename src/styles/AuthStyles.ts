@@ -12,6 +12,11 @@ export const AuthStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
+  mainForgotText: {
+    color: primaryColor,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
   formText: {
     color: primaryColor,
     borderRadius: 8,

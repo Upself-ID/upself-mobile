@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
 import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../params/OnboardingParamList";
@@ -32,7 +31,8 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
         <Text style={AuthStyles.mainText}>
           Please enter your{" "}
           <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            email
+            {" "}
+            email{" "}
           </Text>
         </Text>
 
@@ -41,7 +41,8 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
         <Text style={AuthStyles.mainText}>
           and your{" "}
           <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            password
+            {" "}
+            password{" "}
           </Text>
         </Text>
 
@@ -50,24 +51,26 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
           password={password}
         />
 
-        <View style={AuthStyles.footerContainer}>
-          <Text style={{ margin: 8 }}>
-            Don't have an account?{" "}
-            <Text onPress={onPressGoToRegister} style={{ color: primaryColor }}>
-              Register here
-            </Text>
-            .
-          </Text>
+        <Text style={AuthStyles.mainForgotText}>or forgot your password?</Text>
+      </View>
 
-          <AuthButton
-            onPress={onPressSubmit}
-            backgroundColor={primaryColor}
-            borderColor={primaryColor}
-            rippleColor={whiteColor}
-          >
-            <Text style={AuthStyles.submitText}>Submit</Text>
-          </AuthButton>
-        </View>
+      <View style={AuthStyles.footerContainer}>
+        <Text style={{ margin: 8 }}>
+          Don't have an account?{" "}
+          <Text onPress={onPressGoToRegister} style={{ color: primaryColor }}>
+            Register here
+          </Text>
+          .
+        </Text>
+
+        <AuthButton
+          onPress={onPressSubmit}
+          backgroundColor={primaryColor}
+          borderColor={primaryColor}
+          rippleColor={whiteColor}
+        >
+          <Text style={AuthStyles.submitText}>Submit</Text>
+        </AuthButton>
       </View>
     </AuthAppView>
   );
