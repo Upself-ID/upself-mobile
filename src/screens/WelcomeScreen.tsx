@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { CenterSafeView } from "../components/CenterSafeView";
+import { CenterSafeView } from "../components/AppSafeView";
 import { AuthButton } from "../components/AppButton";
 import { OnboardingProps } from "../params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
@@ -18,7 +18,7 @@ export const WelcomeScreen = ({
   };
 
   return (
-    <CenterSafeView backgroundColor={"#fff"}>
+    <CenterSafeView backgroundColor={whiteColor}>
       <Image
         style={styles.logo}
         source={require("../../assets/images/adaptive-icon.png")}
@@ -57,11 +57,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   buttonText: {
-    textAlign: "center",
     fontWeight: "bold",
-    justifyContent: "center",
-    alignItems: "center",
     marginHorizontal: 32,
+    textAlign: "center",
   },
   welcomeText: {
     color: primaryColor,

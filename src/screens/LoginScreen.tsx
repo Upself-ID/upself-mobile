@@ -1,83 +1,104 @@
-import React from "react";
-import { Text } from "react-native";
-import { CenterSafeView } from "../components/CenterSafeView";
+import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
+import { AuthButton } from "../components/AppButton";
+import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 
 type LoginScreenProps = {};
 
-const { whiteColor } = GlobalColors;
+const { primaryColor, whiteColor } = GlobalColors;
 
-export const LoginScreen = ({}: OnboardingProps<"LoginScreen">) => {
+export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onPressGoToRegister = () => {
+    navigation.replace("RegisterScreen");
+  };
+  const onPressSubmit = () => {
+    navigation.navigate("RegisterScreen");
+  };
+
   return (
-    <CenterSafeView backgroundColor={whiteColor}>
-      <Text>Login</Text>
-    </CenterSafeView>
+    <AuthAppView>
+      <View style={styles.mainContainer}>
+        <Text style={styles.mainText}>
+          Please enter your{" "}
+          <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
+            email
+          </Text>
+        </Text>
+        <TextInput
+          style={styles.formText}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          placeholder="Email address"
+        />
+
+        <Text style={styles.mainText}>
+          and your{" "}
+          <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
+            password
+          </Text>
+        </Text>
+        <TextInput
+          secureTextEntry={true}
+          style={styles.formText}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          placeholder="Password"
+        />
+      </View>
+
+      <View style={styles.footerContainer}>
+        <Text style={{ margin: 8 }}>
+          Don't have an account?{" "}
+          <Text onPress={onPressGoToRegister} style={{ color: primaryColor }}>
+            Register here
+          </Text>
+          .
+        </Text>
+        <AuthButton
+          onPress={onPressSubmit}
+          backgroundColor={primaryColor}
+          borderColor={primaryColor}
+          rippleColor={whiteColor}
+        >
+          <Text style={styles.submitText}>Submit</Text>
+        </AuthButton>
+      </View>
+    </AuthAppView>
   );
 };
 
-// export default function Login({ navigation }) {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const loginHandler = () => {
-//     navigation.navigate("MyExperience");
-//   };
-
-//   return (
-//     <SafeAreaView style={GlobalStyles.container}>
-//       <Image
-//         style={styles.logo}
-//         source={require("../../assets/images/adaptive-icon.png")}
-//       />
-//       <View style={styles.formContainer}>
-//         <Text style={styles.welcomeText}>Welcome to Upself</Text>
-//         <TextInput
-//           style={styles.formText}
-//           onChangeText={(text) => setEmail(text)}
-//           value={email}
-//           placeholder="Email address"
-//         />
-//         <TextInput
-//           secureTextEntry={true}
-//           style={styles.formText}
-//           onChangeText={(text) => setPassword(text)}
-//           value={password}
-//           placeholder="Password"
-//         />
-//         <View>
-//           <Button title="Login" onPress={loginHandler} color="#0d7686" />
-//           {/* <Button title="Register" onPress={loginHandler} color="#000" />  */}
-//         </View>
-//         {/* <SignButton text="Login" onPress={loginHandler} /> */}
-//       </View>
-//     </SafeAreaView>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   logo: {
-//     flex: 1,
-//     width: 200,
-//     height: 200,
-//     margin: 10,
-//   },
-//   formContainer: {
-//     flex: 2,
-//     flexDirection: "column",
-//     // justifyContent: "center",
-//   },
-//   formText: {
-//     height: 40,
-//     borderColor: "#0d7686",
-//     color: "#0d7686",
-//     borderBottomWidth: 2,
-//     padding: 8,
-//     margin: 15,
-//   },
-//   welcomeText: {
-//     color: "#0d7686",
-//     fontWeight: "bold",
-//     fontSize: 20,
-//   },
-// });
+const styles = StyleSheet.create({
+  mainContainer: {
+    marginHorizontal: 32,
+  },
+  mainText: {
+    color: primaryColor,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  formText: {
+    color: primaryColor,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: primaryColor,
+    marginVertical: 16,
+    padding: 8,
+  },
+  footerContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 32,
+  },
+  submitText: {
+    color: whiteColor,
+    fontWeight: "bold",
+    marginHorizontal: 32,
+    textAlign: "center",
+  },
+});

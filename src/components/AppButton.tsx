@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 
-type CustomButtonProps = {
+type AppButtonProps = {
   children: ReactNode;
   onPress: () => void;
   backgroundColor: string;
@@ -21,20 +21,27 @@ export const AuthButton = ({
   backgroundColor,
   borderColor,
   rippleColor,
-}: CustomButtonProps) => {
+}: AppButtonProps) => {
   return Platform.OS === "android" ? (
     <TouchableNativeFeedback
       onPress={onPress}
-      background={TouchableNativeFeedback.Ripple(rippleColor, false, 48)}
+      background={TouchableNativeFeedback.Ripple(rippleColor, false)}
+      useForeground={true}
     >
-      <View style={[styles.buttonContainer, { backgroundColor, borderColor }]}>
+      <View
+        style={[
+          styles.buttonContainer,
+          { backgroundColor, borderColor, overflow: "hidden" },
+        ]}
+      >
         {children}
       </View>
     </TouchableNativeFeedback>
   ) : (
     <TouchableOpacity
-      style={[styles.buttonContainer, { backgroundColor, borderColor }]}
       onPress={onPress}
+      style={[styles.buttonContainer, { backgroundColor, borderColor }]}
+      activeOpacity={1}
     >
       {children}
     </TouchableOpacity>

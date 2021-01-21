@@ -1,6 +1,6 @@
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text } from "react-native";
-import { CenterSafeView } from "../components/CenterSafeView";
+import { CenterSafeView } from "../components/AppSafeView";
 import { GlobalColors } from "../styles/Colors";
 
 type SplashScreenProps = {};

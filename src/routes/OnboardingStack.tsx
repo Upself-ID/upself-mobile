@@ -17,8 +17,15 @@ export const OnboardingStack = ({}: OnboardingStackProps) => {
     <Stack.Navigator
       initialRouteName="WelcomeScreen"
       screenOptions={{
-        headerStyle: { backgroundColor: primaryColor },
-        headerTintColor: whiteColor,
+        headerStyle: {
+          backgroundColor: whiteColor,
+          // This removes shadow header on iOS
+          shadowOpacity: 0,
+          // This removes shadow header on Android
+          elevation: 0,
+        },
+        headerTintColor: primaryColor,
+        headerTitleAlign: "center",
         headerTitleStyle: {
           fontWeight: "bold",
         },
