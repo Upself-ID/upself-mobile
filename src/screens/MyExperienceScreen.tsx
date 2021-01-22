@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, Text, View } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import {
+  Alert,
+  Keyboard,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { AuthStyles } from "../styles/AuthStyles";
@@ -11,93 +18,104 @@ type MyExperienceScreenProps = {};
 const { primaryColor, whiteColor } = GlobalColors;
 
 export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
-  const [experienceText, setExperienceText] = useState("");
+  const [expTitle, setExpTitle] = useState("");
+  const [expBody, setExpBody] = useState("");
+  const [exp, setExp] = useState([
+    { id: 1, title: "First Post", body: "Hello World" },
+  ]);
+
+  const onPressPost = () => {
+    setExp([...exp, { id: Math.random(), title: expTitle, body: expBody }]);
+    console.log(exp);
+  };
 
   return (
     <AuthAppView>
       <View style={styles.screenContainer}>
-        <Text style={styles.headerText}>My Experience</Text>
+        {/* <Text style={styles.titleText}>My Experience</Text> */}
         <TextInput
           multiline
-          style={styles.postInputText}
-          // value={experienceText}
+          style={styles.titleInputText}
+          placeholder="Title"
+          onChangeText={(text) => setExpTitle(text)}
+        />
+        <TextInput
+          multiline
+          style={styles.bodyInputText}
           placeholder="Write your experience today..."
+          onChangeText={(text) => setExpBody(text)}
         />
 
-        <View style={{ paddingHorizontal: 80 }}>
+        <View
+          style={{
+            paddingHorizontal: 80,
+          }}
+        >
           <AuthButton
-            onPress={() => Alert.alert("Please fill the blank form")}
+            onPress={onPressPost}
             backgroundColor={primaryColor}
             borderColor={whiteColor}
             rippleColor={whiteColor}
           >
-            <Text style={AuthStyles.submitText}>Submit</Text>
+            <Text style={AuthStyles.submitText}>Post</Text>
           </AuthButton>
         </View>
       </View>
+
+      <ScrollView>
+        {/* <Text style={styles.headerText}>Your Blog Here</Text> */}
+        {exp.map((title) => (
+          <View style={styles.postListContainer}>
+            <Text style={styles.titleText}>{title.title}</Text>
+            <Text style={styles.bodyText}>{title.body}</Text>
+          </View>
+        ))}
+      </ScrollView>
     </AuthAppView>
   );
 };
 
 const styles = StyleSheet.create({
   screenContainer: {
-    margin: 40,
+    marginTop: 40,
+    marginHorizontal: 40,
   },
-  headerText: {
+  postListContainer: {
+    borderRadius: 4,
+    marginHorizontal: 40,
+    marginVertical: 4,
+    padding: 16,
+    backgroundColor: primaryColor,
+  },
+  // headerText: {
+  //   color: primaryColor,
+  //   fontSize: 24,
+  //   fontWeight: "bold",
+  // },
+  titleText: {
+    color: whiteColor,
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  bodyText: {
+    color: whiteColor,
+    paddingHorizontal: 8,
+    paddingTop: 4,
+  },
+  titleInputText: {
     color: primaryColor,
     fontSize: 24,
     fontWeight: "bold",
   },
   // Valuenya sama dengan AuthStyles.formText, sebaiknya menggunakan itu
-  postInputText: {
+  bodyInputText: {
     color: primaryColor,
     borderRadius: 8,
     borderWidth: 2,
     borderColor: primaryColor,
-    marginVertical: 16,
+    marginTop: 16,
+    marginBottom: 4,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
 });
-
-// import React, { useState } from "react";
-// import { Text, TextInput, SafeAreaView, StyleSheet, View } from "react-native";
-
-// import { GlobalStyles } from "../styles/GlobalStyles";
-
-// export default function MyExperienceScreen({ navigation }) {
-//   const [experience, setExperience] = useState("");
-//   return (
-//     <SafeAreaView style={GlobalStyles.container}>
-//       <View style={styles.container}>
-//         <Text>Hi, </Text>
-//         <Text>Welcome to My Experience</Text>
-//         <TextInput
-//           multiline
-//           placeholder="Ceritakan kisahmu..."
-//           style={styles.formExperience}
-//           onChangeText={(text) => setExperience(text)}
-//         />
-//         <Text>Buat ngetes</Text>
-//         <Text>{experience}</Text>
-//       </View>
-//     </SafeAreaView>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     backgroundColor: "#fff",
-//   },
-//   formExperience: {
-//     height: 40,
-//     borderColor: "#0d7686",
-//     color: "#0d7686",
-//     borderWidth: 1,
-//     padding: 8,
-//     margin: 10,
-//   },
-// });
