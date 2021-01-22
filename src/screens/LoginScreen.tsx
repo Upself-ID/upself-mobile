@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
@@ -6,12 +6,14 @@ import { OnboardingProps } from "../config/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 import { AuthStyles } from "../styles/AuthStyles";
 import { EmailInput, PasswordInput } from "../components/AppTextInput";
+import { AuthContext } from "../services/AuthContext";
 
 type LoginScreenProps = {};
 
 const { primaryColor, whiteColor } = GlobalColors;
 
 export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +24,8 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
     navigation.replace("RegisterScreen");
   };
   const onPressSubmit = () => {
-    navigation.navigate("RegisterScreen");
+    login();
+    // navigation.navigate("RegisterScreen");
   };
 
   return (
@@ -63,14 +66,18 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
           .
         </Text>
 
+        {/* <AuthContext.Consumer> */}
+        {/* {({ login }) => ( */}
         <AuthButton
-          onPress={onPressSubmit}
+          onPress={login}
           backgroundColor={primaryColor}
-          borderColor={primaryColor}
+          borderColor={whiteColor}
           rippleColor={whiteColor}
         >
           <Text style={AuthStyles.submitText}>Submit</Text>
         </AuthButton>
+        {/* )} */}
+        {/* </AuthContext.Consumer> */}
       </View>
     </AuthAppView>
   );

@@ -1,12 +1,15 @@
+import React, { useContext, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
 import { HomeTabs } from "./HomeTabs";
 import { OnboardingStack } from "./OnboardingStack";
 import { SplashScreen } from "../screens/SplashScreen";
+import { AuthContext } from "../services/AuthContext";
 
 type RoutesProps = {};
 
 export const Routes = ({}: RoutesProps) => {
+  const { user } = useContext(AuthContext);
+
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -22,7 +25,7 @@ export const Routes = ({}: RoutesProps) => {
 
   return (
     <NavigationContainer>
-      {!isLoggedIn ? <OnboardingStack /> : <HomeTabs />}
+      {!user ? <OnboardingStack /> : <HomeTabs />}
     </NavigationContainer>
   );
 };

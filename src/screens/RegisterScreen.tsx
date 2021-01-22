@@ -70,7 +70,7 @@ export const RegisterScreen = ({
         <AuthButton
           onPress={onPressSubmit}
           backgroundColor={primaryColor}
-          borderColor={primaryColor}
+          borderColor={whiteColor}
           rippleColor={whiteColor}
         >
           <Text style={AuthStyles.submitText}>Submit</Text>
