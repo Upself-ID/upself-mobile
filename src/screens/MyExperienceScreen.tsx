@@ -1,3 +1,16 @@
+import React from "react";
+import { Text, View } from "react-native";
+
+type MyExperienceScreenProps = {};
+
+export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
+  return (
+    <View>
+      <Text>My Experience</Text>
+    </View>
+  );
+};
+
 // import React, { useState } from "react";
 // import { Text, TextInput, SafeAreaView, StyleSheet, View } from "react-native";
 

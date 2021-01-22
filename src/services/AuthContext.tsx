@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 
 type AuthProviderProps = { children: ReactNode };
 
@@ -22,17 +16,13 @@ export const AuthContext = createContext<{
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User>(null);
-  const { user: thisUser } = useContext(AuthContext);
 
   return (
     <AuthContext.Provider
       value={{
         user,
         login: () => {
-          setUser("Panji");
-          console.log("Auth Provider pressed");
-          console.log("user (state) " + user);
-          console.log("thisUser (context) " + thisUser);
+          setUser("Upself");
         },
         logout: () => setUser(null),
       }}
