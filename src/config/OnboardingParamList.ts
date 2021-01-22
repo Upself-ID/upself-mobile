@@ -5,6 +5,7 @@ export type OnboardingParamList = {
   WelcomeScreen: undefined;
   LoginScreen: undefined;
   RegisterScreen: undefined;
+  SplashScreen: undefined;
 };
 
 export type OnboardingProps<T extends keyof OnboardingParamList> = {

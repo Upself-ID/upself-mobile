@@ -1,4 +1,6 @@
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, { createContext, ReactNode, useState } from "react";
+import { OnboardingProps } from "../config/OnboardingParamList";
+import { SplashScreen } from "../screens/SplashScreen";
 
 type AuthProviderProps = { children: ReactNode };
 
@@ -21,9 +23,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     <AuthContext.Provider
       value={{
         user,
-        login: () => {
-          setUser("Upself");
-        },
+        login: () => setUser("Upself"),
         logout: () => setUser(null),
       }}
     >

@@ -5,6 +5,7 @@ import { RegisterScreen } from "../screens/RegisterScreen";
 import { WelcomeScreen } from "../screens/WelcomeScreen";
 import { OnboardingParamList } from "../config/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
+import { SplashScreen } from "../screens/SplashScreen";
 
 type OnboardingStackProps = {};
 
@@ -48,6 +49,14 @@ export const OnboardingStack = ({}: OnboardingStackProps) => {
         component={RegisterScreen}
         options={{
           title: "Register",
+        }}
+      />
+      <Stack.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={{
+          title: "Splash Screen",
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

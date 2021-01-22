@@ -23,10 +23,6 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
   const onPressGoToRegister = () => {
     navigation.replace("RegisterScreen");
   };
-  const onPressSubmit = () => {
-    login();
-    // navigation.navigate("RegisterScreen");
-  };
 
   return (
     <AuthAppView>
@@ -66,8 +62,6 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
           .
         </Text>
 
-        {/* <AuthContext.Consumer> */}
-        {/* {({ login }) => ( */}
         <AuthButton
           onPress={login}
           backgroundColor={primaryColor}
@@ -76,8 +70,6 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
         >
           <Text style={AuthStyles.submitText}>Submit</Text>
         </AuthButton>
-        {/* )} */}
-        {/* </AuthContext.Consumer> */}
       </View>
     </AuthAppView>
   );
