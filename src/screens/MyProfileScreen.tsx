@@ -22,7 +22,7 @@ export const MyProfileScreen = ({}: MyProfileScreenProps) => {
             borderColor={whiteColor}
             rippleColor={whiteColor}
           >
-            <Text style={AuthStyles.submitText}>Post</Text>
+            <Text style={AuthStyles.submitText}>Sign Out</Text>
           </AuthButton>
         </View>
       </View>

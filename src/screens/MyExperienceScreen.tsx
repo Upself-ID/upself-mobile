@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import {
-  Alert,
-  Keyboard,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { StyleSheet, Text, TextInput, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { AuthStyles } from "../styles/AuthStyles";
