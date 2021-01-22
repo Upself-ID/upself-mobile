@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Alert, Text, View } from "react-native";
 import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
-import { OnboardingProps } from "../params/OnboardingParamList";
+import { OnboardingProps } from "../config/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 import { AuthStyles } from "../styles/AuthStyles";
 import { EmailInput, PasswordInput } from "../components/AppTextInput";

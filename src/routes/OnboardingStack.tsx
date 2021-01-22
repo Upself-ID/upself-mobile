@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { LoginScreen } from "../screens/LoginScreen";
 import { RegisterScreen } from "../screens/RegisterScreen";
 import { WelcomeScreen } from "../screens/WelcomeScreen";
-import { OnboardingParamList } from "../params/OnboardingParamList";
+import { OnboardingParamList } from "../config/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 
 type OnboardingStackProps = {};

@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { CenterSafeView } from "../components/AppSafeView";
 import { AuthButton } from "../components/AppButton";
-import { OnboardingProps } from "../params/OnboardingParamList";
+import { OnboardingProps } from "../config/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 
 type WelcomeScreenProps = {};
