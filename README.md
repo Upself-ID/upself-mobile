@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://upself.id">
-    <img src="./assets/images/adaptive-icon.png" height="128">
+    <img src="./src/assets/images/adaptive-icon.png" height="140">
     <h1 align="center">Upself</h1>
   </a>
 </p>
