@@ -14,18 +14,17 @@ export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
   const [expTitle, setExpTitle] = useState("");
   const [expBody, setExpBody] = useState("");
   const [exp, setExp] = useState([
-    { id: 1, title: "First Post", body: "Hello World" },
+    { title: "First Post", body: "Hello World" },
   ]);
 
   const onPressPost = () => {
-    setExp([...exp, { id: Math.random(), title: expTitle, body: expBody }]);
-    console.log(exp);
+    setExp([...exp, { title: expTitle, body: expBody }]);
   };
 
   return (
     <AuthAppView>
       <View style={styles.screenContainer}>
-        {/* <Text style={styles.titleText}>My Experience</Text> */}
+        {/* Title and body form */}
         <TextInput
           multiline
           style={styles.titleInputText}
@@ -39,11 +38,8 @@ export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
           onChangeText={(text) => setExpBody(text)}
         />
 
-        <View
-          style={{
-            paddingHorizontal: 80,
-          }}
-        >
+        {/* Post button */}
+        <View style={{ paddingHorizontal: 80 }}>
           <AuthButton
             onPress={onPressPost}
             backgroundColor={primaryColor}
@@ -55,12 +51,12 @@ export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
         </View>
       </View>
 
+      {/* List of displayed My Experience posts */}
       <ScrollView>
-        {/* <Text style={styles.headerText}>Your Blog Here</Text> */}
-        {exp.map((title) => (
-          <View style={styles.postListContainer}>
-            <Text style={styles.titleText}>{title.title}</Text>
-            <Text style={styles.bodyText}>{title.body}</Text>
+        {exp.map((expArray, index) => (
+          <View key={index} style={styles.expArrayContainer}>
+            <Text style={styles.titleText}>{expArray.title}</Text>
+            <Text style={styles.bodyText}>{expArray.body}</Text>
           </View>
         ))}
       </ScrollView>
@@ -73,18 +69,13 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginHorizontal: 40,
   },
-  postListContainer: {
+  expArrayContainer: {
     borderRadius: 4,
     marginHorizontal: 40,
     marginVertical: 4,
     padding: 16,
     backgroundColor: primaryColor,
   },
-  // headerText: {
-  //   color: primaryColor,
-  //   fontSize: 24,
-  //   fontWeight: "bold",
-  // },
   titleText: {
     color: whiteColor,
     fontSize: 24,

@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { CenterSafeView } from "../components/AppSafeView";
 import { AuthButton } from "../components/AppButton";
-import { OnboardingProps } from "../config/OnboardingParamList";
+import { OnboardingProps } from "../utilities/params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 
 type WelcomeScreenProps = {};
@@ -21,7 +21,7 @@ export const WelcomeScreen = ({
     <CenterSafeView backgroundColor={whiteColor}>
       <Image
         style={styles.logo}
-        source={require("../../assets/images/adaptive-icon.png")}
+        source={require("../assets/images/adaptive-icon.png")}
       />
       <Text style={styles.welcomeText}>Welcome to Upself</Text>
       <View style={styles.buttonContainer}>

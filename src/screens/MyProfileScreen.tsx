@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
-import { AuthContext } from "../services/AuthContext";
+import { AuthContext } from "../utilities/context/AuthContext";
 import { AuthStyles } from "../styles/AuthStyles";
 import { GlobalColors } from "../styles/Colors";
 

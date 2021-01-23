@@ -1,6 +1,4 @@
 import React, { createContext, ReactNode, useState } from "react";
-import { OnboardingProps } from "../config/OnboardingParamList";
-import { SplashScreen } from "../screens/SplashScreen";
 
 type AuthProviderProps = { children: ReactNode };
 

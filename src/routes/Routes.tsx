@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { HomeTabs } from "./HomeTabs";
 import { OnboardingStack } from "./OnboardingStack";
 import { SplashScreen } from "../screens/SplashScreen";
-import { AuthContext } from "../services/AuthContext";
+import { AuthContext } from "../utilities/context/AuthContext";
 
 type RoutesProps = {};
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes } from "./src/routes/Routes";
-import { AuthProvider } from "./src/services/AuthContext";
+import { AuthProvider } from "./src/utilities/context/AuthContext";
 
 type AppProps = {};
 
