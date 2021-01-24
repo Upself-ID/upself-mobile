@@ -17,7 +17,10 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onChangeEmailText = (text: string) => setEmail(text);
+  const onChangeEmailText = (text: string) => {
+    setEmail(text);
+    console.log(email);
+  };
   const onChangePasswordText = (text: string) => setPassword(text);
 
   const onPressGoToRegister = () => {
@@ -35,7 +38,7 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
           </Text>
         </Text>
 
-        <EmailInput onChangeText={onChangeEmailText} email={email} />
+        <EmailInput onChangeText={onChangeEmailText} />
 
         <Text style={AuthStyles.mainText}>
           and your{" "}
@@ -45,10 +48,7 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
           </Text>
         </Text>
 
-        <PasswordInput
-          onChangeText={onChangePasswordText}
-          password={password}
-        />
+        <PasswordInput onChangeText={onChangePasswordText} />
 
         <Text style={AuthStyles.mainForgotText}>or forgot your password?</Text>
       </View>

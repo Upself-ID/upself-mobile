@@ -42,7 +42,7 @@ export const RegisterScreen = ({
           </Text>
         </Text>
 
-        <EmailInput onChangeText={onChangeEmailText} email={email} />
+        <EmailInput onChangeText={onChangeEmailText} />
 
         <Text style={AuthStyles.mainText}>
           and your{" "}
@@ -52,10 +52,7 @@ export const RegisterScreen = ({
           </Text>
         </Text>
 
-        <PasswordInput
-          onChangeText={onChangePasswordText}
-          password={password}
-        />
+        <PasswordInput onChangeText={onChangePasswordText} />
       </View>
 
       <View style={AuthStyles.footerContainer}>

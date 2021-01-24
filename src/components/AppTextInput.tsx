@@ -4,32 +4,26 @@ import { AuthStyles } from "../styles/AuthStyles";
 
 type AppTextInputProps = {
   onChangeText: (text: string) => void;
-  email?: string;
-  password?: string;
+  // email?: string;
+  // password?: string;
 };
 
-export const EmailInput = ({ onChangeText, email }: AppTextInputProps) => {
+export const EmailInput = ({ onChangeText }: AppTextInputProps) => {
   return (
     <TextInput
       style={[AuthStyles.formText, { textTransform: "lowercase" }]}
       onChangeText={onChangeText}
-      value={email}
       placeholder="Email address"
-      keyboardType="email-address"
     />
   );
 };
 
-export const PasswordInput = ({
-  onChangeText,
-  password,
-}: AppTextInputProps) => {
+export const PasswordInput = ({ onChangeText }: AppTextInputProps) => {
   return (
     <TextInput
       secureTextEntry={true}
       style={AuthStyles.formText}
       onChangeText={onChangeText}
-      value={password}
       placeholder="Password"
     />
   );
