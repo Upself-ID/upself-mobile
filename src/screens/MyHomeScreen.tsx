@@ -1,15 +1,66 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { AuthButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
+import { GlobalColors } from "../styles/Colors";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 type MyHomeScreenProps = {};
 
+const { primaryColor, whiteColor } = GlobalColors;
+
 export const MyHomeScreen = ({}: MyHomeScreenProps) => {
+  // const onPressSearch = () => {
+
+  // }
+
   return (
     <AuthAppView>
-      <View>
-        <Text>My Home coming soon...</Text>
+      <View style={{ backgroundColor: primaryColor }}>
+        <View style={styles.headingContainer}>
+          <AuthButton
+            // onPress={onPressSearch}
+            backgroundColor={whiteColor}
+            borderColor={whiteColor}
+            rippleColor={whiteColor}
+          >
+            <View style={{ flexDirection: "row", justifyContent: "center" }}>
+              <FontAwesomeIcon icon={faSearch} color="#888" size={20} />
+              <Text style={styles.searchText}>Find an insight...</Text>
+            </View>
+          </AuthButton>
+
+          <Text style={{ fontSize: 48, fontWeight: "bold", color: whiteColor }}>
+            Carousel
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.knowledgeContainer}>
+        <Text>My Knowledge</Text>
       </View>
     </AuthAppView>
   );
 };
+
+const styles = StyleSheet.create({
+  // Heading
+  headingContainer: {
+    marginTop: 8,
+    marginBottom: 40,
+    marginHorizontal: 40,
+  },
+  searchText: {
+    color: "#888",
+    fontWeight: "bold",
+    textAlign: "center",
+    paddingHorizontal: 16,
+  },
+
+  // MyKnowledge Articles
+  knowledgeContainer: {
+    marginTop: 8,
+    marginHorizontal: 40,
+  },
+});

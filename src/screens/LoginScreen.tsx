@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Text, View } from "react-native";
-import { AuthButton } from "../components/AppButton";
+import { AppButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../utilities/params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
@@ -17,10 +17,7 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onChangeEmailText = (text: string) => {
-    setEmail(text);
-    console.log(email);
-  };
+  const onChangeEmailText = (text: string) => setEmail(text);
   const onChangePasswordText = (text: string) => setPassword(text);
 
   const onPressGoToRegister = () => {
@@ -62,14 +59,14 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
           .
         </Text>
 
-        <AuthButton
+        <AppButton
           onPress={login}
           backgroundColor={primaryColor}
           borderColor={whiteColor}
           rippleColor={whiteColor}
         >
           <Text style={AuthStyles.submitText}>Submit</Text>
-        </AuthButton>
+        </AppButton>
       </View>
     </AuthAppView>
   );

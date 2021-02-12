@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Text, View } from "react-native";
-import { AuthButton } from "../components/AppButton";
+import { AppButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../utilities/params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
@@ -64,14 +64,14 @@ export const RegisterScreen = ({
           .
         </Text>
 
-        <AuthButton
+        <AppButton
           onPress={onPressSubmit}
           backgroundColor={primaryColor}
           borderColor={whiteColor}
           rippleColor={whiteColor}
         >
           <Text style={AuthStyles.submitText}>Submit</Text>
-        </AuthButton>
+        </AppButton>
       </View>
     </AuthAppView>
   );

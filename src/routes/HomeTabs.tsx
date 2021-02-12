@@ -1,11 +1,14 @@
 import React from "react";
-// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MyExperienceScreen } from "../screens/MyExperienceScreen";
 import { MyHomeScreen } from "../screens/MyHomeScreen";
 import { MyProfileScreen } from "../screens/MyProfileScreen";
 import { GlobalColors } from "../styles/Colors";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faHome, faPen, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBookOpen,
+  faPen,
+  faUserCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 type HomeTabsProps = {};
@@ -21,7 +24,7 @@ export const HomeTabs = ({}: HomeTabsProps) => {
       backBehavior="none"
       shifting={true}
       barStyle={{ backgroundColor: whiteColor }}
-      activeColor={primaryColor}
+      activeColor="#888"
     >
       <Tab.Screen
         name="MyHomeScreen"
@@ -31,10 +34,16 @@ export const HomeTabs = ({}: HomeTabsProps) => {
           tabBarIcon: ({ focused }) => {
             if (focused) {
               return (
-                <FontAwesomeIcon icon={faHome} color={primaryColor} size={20} />
+                <FontAwesomeIcon
+                  icon={faBookOpen}
+                  color={primaryColor}
+                  size={20}
+                />
               );
             } else {
-              return <FontAwesomeIcon icon={faHome} color="#888" size={20} />;
+              return (
+                <FontAwesomeIcon icon={faBookOpen} color="#888" size={20} />
+              );
             }
           },
         }}

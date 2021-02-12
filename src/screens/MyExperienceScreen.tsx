@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { AuthButton } from "../components/AppButton";
+import { AppButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { AuthStyles } from "../styles/AuthStyles";
 import { GlobalColors } from "../styles/Colors";
@@ -24,7 +24,7 @@ export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
   return (
     <AuthAppView>
       <View style={styles.screenContainer}>
-        {/* Title and body form */}
+        {/* Title and Body Form */}
         <TextInput
           multiline
           style={styles.titleInputText}
@@ -38,20 +38,20 @@ export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
           onChangeText={(text) => setExpBody(text)}
         />
 
-        {/* Post button */}
+        {/* Post Button */}
         <View style={{ paddingHorizontal: 80 }}>
-          <AuthButton
+          <AppButton
             onPress={onPressPost}
             backgroundColor={primaryColor}
             borderColor={whiteColor}
             rippleColor={whiteColor}
           >
             <Text style={AuthStyles.submitText}>Post</Text>
-          </AuthButton>
+          </AppButton>
         </View>
       </View>
 
-      {/* List of displayed My Experience posts */}
+      {/* List of MyExperience Posts */}
       <ScrollView>
         {exp.map((expArray, index) => (
           <View key={index} style={styles.expArrayContainer}>

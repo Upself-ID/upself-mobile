@@ -9,13 +9,13 @@ import {
 
 type AppButtonProps = {
   children: ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
   backgroundColor: string;
   borderColor: string;
   rippleColor: string;
 };
 
-export const AuthButton = ({
+export const AppButton = ({
   children,
   onPress,
   backgroundColor,
