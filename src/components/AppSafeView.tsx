@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: whiteColor,
     flexDirection: "column",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
   },
 });

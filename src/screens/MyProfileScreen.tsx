@@ -7,7 +7,9 @@ import { GlobalColors } from "../styles/Colors";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faBell,
+  faCog,
   faHistory,
+  faInfoCircle,
   faTicketAlt,
   faUser,
   faUserFriends,
@@ -25,7 +27,7 @@ export const MyProfileScreen = ({}: MyProfileScreenProps) => {
         {/* Profile Container View */}
         <View>
           <View style={styles.profileNameContainer}>
-            <FontAwesomeIcon icon={faUser} color="#888" size={60} />
+            <FontAwesomeIcon icon={faUser} color="#f79194" size={60} />
             <View style={{ paddingLeft: 20 }}>
               <Text style={styles.profileUserName}>Panji Ahmad N</Text>
               <Text style={styles.profileMood}>
@@ -34,28 +36,42 @@ export const MyProfileScreen = ({}: MyProfileScreenProps) => {
             </View>
           </View>
 
-          <View>
+          {/* Account Information */}
+          <View style={{ marginBottom: 16 }}>
             <View style={styles.menuContainer}>
-              <FontAwesomeIcon icon={faTicketAlt} color="#888" size={20} />
-              <Text>Vouchers</Text>
+              <FontAwesomeIcon icon={faTicketAlt} color="#c4c4c4" size={32} />
+              <Text style={styles.menuText}>Vouchers</Text>
             </View>
 
             <View style={styles.menuContainer}>
-              <FontAwesomeIcon icon={faBell} color="#888" size={20} />
-              <Text>Appointments</Text>
+              <FontAwesomeIcon icon={faBell} color="#c4c4c4" size={32} />
+              <Text style={styles.menuText}>Appointments</Text>
             </View>
 
             <View style={styles.menuContainer}>
-              <FontAwesomeIcon icon={faHistory} color="#888" size={20} />
-              <Text>History</Text>
+              <FontAwesomeIcon icon={faHistory} color="#c4c4c4" size={32} />
+              <Text style={styles.menuText}>History</Text>
             </View>
 
             <View style={styles.menuContainer}>
-              <FontAwesomeIcon icon={faUserFriends} color="#888" size={20} />
-              <Text>Friends</Text>
+              <FontAwesomeIcon icon={faUserFriends} color="#c4c4c4" size={32} />
+              <Text style={styles.menuText}>Friends</Text>
+            </View>
+          </View>
+
+          {/* Setting and About */}
+          <View style={{ marginBottom: 16 }}>
+            <View style={styles.menuContainer}>
+              <FontAwesomeIcon icon={faCog} color="#c4c4c4" size={32} />
+              <Text style={styles.menuText}>Setting</Text>
+            </View>
+            <View style={styles.menuContainer}>
+              <FontAwesomeIcon icon={faInfoCircle} color="#c4c4c4" size={32} />
+              <Text style={styles.menuText}>About</Text>
             </View>
           </View>
         </View>
+
         {/* Sign Out Container View */}
         <View style={{ paddingHorizontal: 120 }}>
           <AppButton
@@ -84,7 +100,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   profileUserName: {
-    color: primaryColor,
+    color: "#737373",
     fontSize: 24,
     fontWeight: "bold",
   },
@@ -96,6 +112,16 @@ const styles = StyleSheet.create({
   // Menu
   menuContainer: {
     flexDirection: "row",
+    paddingVertical: 8,
+    alignItems: "center",
+    // borderBottomWidth: 1,
+    // borderColor: "#888",
+  },
+  menuText: {
+    color: "#888",
+    fontWeight: "bold",
+    marginLeft: 20,
+    fontSize: 16,
   },
 
   // Sign Out & Settings

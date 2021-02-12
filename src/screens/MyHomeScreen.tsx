@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { AuthButton } from "../components/AppButton";
+import { AppButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { GlobalColors } from "../styles/Colors";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -19,7 +19,7 @@ export const MyHomeScreen = ({}: MyHomeScreenProps) => {
     <AuthAppView>
       <View style={{ backgroundColor: primaryColor }}>
         <View style={styles.headingContainer}>
-          <AuthButton
+          <AppButton
             // onPress={onPressSearch}
             backgroundColor={whiteColor}
             borderColor={whiteColor}
@@ -29,7 +29,7 @@ export const MyHomeScreen = ({}: MyHomeScreenProps) => {
               <FontAwesomeIcon icon={faSearch} color="#888" size={20} />
               <Text style={styles.searchText}>Find an insight...</Text>
             </View>
-          </AuthButton>
+          </AppButton>
 
           <Text style={{ fontSize: 48, fontWeight: "bold", color: whiteColor }}>
             Carousel
@@ -37,8 +37,13 @@ export const MyHomeScreen = ({}: MyHomeScreenProps) => {
         </View>
       </View>
 
-      <View style={styles.knowledgeContainer}>
-        <Text>My Knowledge</Text>
+      <View>
+        <View style={styles.cardContainer}>
+          <Text style={styles.menuTitleText}>My Psychologists</Text>
+        </View>
+        <View style={styles.cardContainer}>
+          <Text style={styles.menuTitleText}>My Knowledge</Text>
+        </View>
       </View>
     </AuthAppView>
   );
@@ -49,7 +54,7 @@ const styles = StyleSheet.create({
   headingContainer: {
     marginTop: 8,
     marginBottom: 40,
-    marginHorizontal: 40,
+    marginHorizontal: 20,
   },
   searchText: {
     color: "#888",
@@ -59,8 +64,13 @@ const styles = StyleSheet.create({
   },
 
   // MyKnowledge Articles
-  knowledgeContainer: {
-    marginTop: 8,
-    marginHorizontal: 40,
+  cardContainer: {
+    marginVertical: 16,
+    marginHorizontal: 20,
+  },
+  menuTitleText: {
+    color: "#888",
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });

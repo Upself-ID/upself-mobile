@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { CenterSafeView } from "../components/AppSafeView";
-import { AuthButton } from "../components/AppButton";
+import { AppButton } from "../components/AppButton";
 import { OnboardingProps } from "../utilities/params/OnboardingParamList";
 import { GlobalColors } from "../styles/Colors";
 
@@ -25,15 +25,15 @@ export const WelcomeScreen = ({
       />
       <Text style={styles.welcomeText}>Welcome to Upself</Text>
       <View style={styles.buttonContainer}>
-        <AuthButton
+        <AppButton
           onPress={onPressLogin}
           backgroundColor={primaryColor}
           borderColor={primaryColor}
           rippleColor={whiteColor}
         >
           <Text style={[styles.buttonText, { color: whiteColor }]}>Log In</Text>
-        </AuthButton>
-        <AuthButton
+        </AppButton>
+        <AppButton
           onPress={onPressRegister}
           backgroundColor={whiteColor}
           borderColor={primaryColor}
@@ -42,7 +42,7 @@ export const WelcomeScreen = ({
           <Text style={[styles.buttonText, { color: primaryColor }]}>
             Register
           </Text>
-        </AuthButton>
+        </AppButton>
       </View>
     </CenterSafeView>
   );
