@@ -66,12 +66,15 @@ export const MyExperienceScreen = ({}: MyExperienceScreenProps) => {
       <ScrollView>
         {exp.map((expArray, index) => (
           <View key={index} style={styles.expArrayContainer}>
-            <View style={{ flexDirection: "row" }}>
-              <FontAwesomeIcon icon={faUser} color="#a7faeb" size={20} />
-              <Text style={styles.profileNameText}>Anonymous</Text>
+            <View style={{ marginHorizontal: 20 }}>
+              <View style={{ flexDirection: "row" }}>
+                <FontAwesomeIcon icon={faUser} color="#a7faeb" size={20} />
+                <Text style={styles.profileNameText}>Anonymous</Text>
+              </View>
+              <Text style={styles.titleText}>{expArray.title}</Text>
+              <Text style={styles.bodyText}>{expArray.body}</Text>
             </View>
-            <Text style={styles.titleText}>{expArray.title}</Text>
-            <Text style={styles.bodyText}>{expArray.body}</Text>
+
             <View
               style={{
                 flexDirection: "row",
@@ -117,13 +120,14 @@ const styles = StyleSheet.create({
   // MyExperience Posts
   expArrayContainer: {
     borderRadius: 4,
-    marginHorizontal: 20,
     paddingBottom: 16,
     marginBottom: 16,
     borderColor: "#72948e",
     borderBottomWidth: 1,
   },
   profileNameText: {
+    color: "#093257",
+    fontWeight: "bold",
     marginLeft: 8,
   },
   titleText: {
@@ -131,10 +135,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginTop: 8,
+    textAlign: "justify",
   },
   bodyText: {
     color: "#093257",
     paddingHorizontal: 8,
     paddingTop: 4,
+    textAlign: "justify",
   },
 });

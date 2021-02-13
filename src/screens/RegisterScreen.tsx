@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Text, View } from "react-native";
+import { Alert, Image, StyleSheet, Text, View } from "react-native";
 import { AppButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../utilities/params/OnboardingParamList";
@@ -33,26 +33,20 @@ export const RegisterScreen = ({
 
   return (
     <AuthAppView>
-      <View style={AuthStyles.mainContainer}>
-        <Text style={AuthStyles.mainText}>
-          Please enter your{" "}
-          <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            {" "}
-            email{" "}
-          </Text>
-        </Text>
+      <View>
+        <View style={AuthStyles.mainContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../assets/images/adaptive-icon.png")}
+          />
 
-        <EmailInput onChangeText={onChangeEmailText} />
+          <Text style={AuthStyles.mainText}>Please enter the following:</Text>
+        </View>
 
-        <Text style={AuthStyles.mainText}>
-          and your{" "}
-          <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            {" "}
-            password{" "}
-          </Text>
-        </Text>
-
-        <PasswordInput onChangeText={onChangePasswordText} />
+        <View style={{ marginHorizontal: 64 }}>
+          <EmailInput onChangeText={onChangeEmailText} />
+          <PasswordInput onChangeText={onChangePasswordText} />
+        </View>
       </View>
 
       <View style={AuthStyles.footerContainer}>
@@ -76,3 +70,10 @@ export const RegisterScreen = ({
     </AuthAppView>
   );
 };
+
+const styles = StyleSheet.create({
+  logo: {
+    width: 200,
+    height: 200,
+  },
+});

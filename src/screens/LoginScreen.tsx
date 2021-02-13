@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { AppButton } from "../components/AppButton";
 import { AuthAppView } from "../components/AppSafeView";
 import { OnboardingProps } from "../utilities/params/OnboardingParamList";
@@ -26,28 +26,26 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
 
   return (
     <AuthAppView>
-      <View style={AuthStyles.mainContainer}>
-        <Text style={AuthStyles.mainText}>
-          Please enter your{" "}
-          <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            {" "}
-            email{" "}
+      <View>
+        <View style={AuthStyles.mainContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../assets/images/adaptive-icon.png")}
+          />
+
+          <Text style={AuthStyles.mainText}>Please enter the following:</Text>
+        </View>
+
+        <View style={{ marginHorizontal: 64 }}>
+          <EmailInput onChangeText={onChangeEmailText} />
+          <PasswordInput onChangeText={onChangePasswordText} />
+        </View>
+
+        <View style={AuthStyles.mainContainer}>
+          <Text style={AuthStyles.mainForgotText}>
+            or forgot your password?
           </Text>
-        </Text>
-
-        <EmailInput onChangeText={onChangeEmailText} />
-
-        <Text style={AuthStyles.mainText}>
-          and your{" "}
-          <Text style={{ backgroundColor: primaryColor, color: whiteColor }}>
-            {" "}
-            password{" "}
-          </Text>
-        </Text>
-
-        <PasswordInput onChangeText={onChangePasswordText} />
-
-        <Text style={AuthStyles.mainForgotText}>or forgot your password?</Text>
+        </View>
       </View>
 
       <View style={AuthStyles.footerContainer}>
@@ -71,3 +69,10 @@ export const LoginScreen = ({ navigation }: OnboardingProps<"LoginScreen">) => {
     </AuthAppView>
   );
 };
+
+const styles = StyleSheet.create({
+  logo: {
+    width: 200,
+    height: 200,
+  },
+});

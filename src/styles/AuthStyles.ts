@@ -5,7 +5,8 @@ const { primaryColor, whiteColor } = GlobalColors;
 
 export const AuthStyles = StyleSheet.create({
   mainContainer: {
-    marginHorizontal: 32,
+    // marginHorizontal: 32,
+    alignItems: "center",
   },
   mainText: {
     color: primaryColor,
@@ -19,17 +20,17 @@ export const AuthStyles = StyleSheet.create({
   },
   formText: {
     color: primaryColor,
-    borderRadius: 8,
-    borderWidth: 2,
+    // borderRadius: 8,
+    borderBottomWidth: 2,
     borderColor: primaryColor,
     marginVertical: 16,
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     paddingVertical: 8,
   },
   footerContainer: {
     justifyContent: "center",
     alignItems: "center",
-    margin: 32,
+    margin: 16,
   },
   submitText: {
     color: whiteColor,
