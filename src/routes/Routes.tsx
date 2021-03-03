@@ -4,6 +4,7 @@ import { HomeTabs } from "./HomeTabs";
 import { OnboardingStack } from "./OnboardingStack";
 import { SplashScreen } from "../screens/SplashScreen";
 import { AuthContext } from "../utilities/context/AuthContext";
+import AsyncStorage from "@react-native-community/async-storage";
 
 type RoutesProps = {};
 
@@ -16,6 +17,13 @@ export const Routes = ({}: RoutesProps) => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+    fetch("https://upself.id/token-get")
+      .then((response) => response.json())
+      .then((data) => {
+        AsyncStorage.setItem("token", data, () => {
+          console.log(data + "is not stored succesfully!");
+        });
+      });
   }, []);
 
   if (isLoading) {
